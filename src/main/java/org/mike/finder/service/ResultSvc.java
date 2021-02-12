@@ -6,6 +6,7 @@ import org.mike.finder.model.Post;
 import org.mike.finder.model.Result;
 import org.mike.finder.repo.ResultRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,9 @@ public class ResultSvc {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Value("${my.services.posts}")
+    private String postsHost;
 
     public List<Post> getByFilter(String filter, String value) {
 
@@ -47,7 +51,7 @@ public class ResultSvc {
         log.info("### EXCHANGING WITH POSTS SVC: {}/{}", filter, value);
 
         ResponseEntity<List<Post>> response = restTemplate.exchange(
-                "http://localhost:5001/posts/{filter}/{value}",
+                "http://" + postsHost + ":5001/posts/{filter}/{value}",
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<Post>>() {},
                 filter,

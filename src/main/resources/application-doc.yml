@@ -4,11 +4,11 @@ server:
 spring:
   redis:
     port: "6379"
-    host: "localhost"
+    host: "redis"
 
 my:
   services:
-    posts: localhost
+    posts: posts
 
 management:
   endpoints:
