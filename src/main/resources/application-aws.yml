@@ -8,7 +8,7 @@ spring:
 
 my:
   services:
-    posts: posts
+    posts: 18.159.45.126
 
 management:
   endpoints:
