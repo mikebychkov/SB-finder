@@ -1,10 +1,10 @@
-version: '3'
+version: '2'
 services:
   finder:
     image: mikebychkov/sb-finder
     mem_limit: 300000000
     ports:
-      - "5002:5002"      
+      - "5002:5002"
     environment:
-      PROFILE: "doc"
+      PROFILE: "aws"
       REDIS_SERVER: "redis.rk6ewl.ng.0001.euc1.cache.amazonaws.com:6379"

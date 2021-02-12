@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.com/mikebychkov/SB-finder.svg?branch=main)](https://travis-ci.com/mikebychkov/SB-finder)
