@@ -50,14 +50,22 @@ public class ResultSvc {
 
         log.info("### EXCHANGING WITH POSTS SVC: {}/{}", filter, value);
 
-        ResponseEntity<List<Post>> response = restTemplate.exchange(
-                "http://" + postsHost + ":5001/posts/{filter}/{value}",
-                HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<Post>>() {},
-                filter,
-                value
-        );
+        List<Post> rsl = null;
 
-        return response.getBody();
+        try {
+            ResponseEntity<List<Post>> response = restTemplate.exchange(
+                    "http://" + postsHost + ":5001/posts/{filter}/{value}",
+                    HttpMethod.GET, null,
+                    new ParameterizedTypeReference<List<Post>>() {
+                    },
+                    filter,
+                    value
+            );
+            rsl = response.getBody();
+        } catch (Exception e) {
+            log.error(e.getLocalizedMessage());
+        }
+
+        return rsl;
     }
 }
