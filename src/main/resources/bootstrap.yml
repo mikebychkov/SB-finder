@@ -1,3 +1,10 @@
 spring:
   application:
     name: finder
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+      config:
+        sources:
+          - name: config

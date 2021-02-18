@@ -18,7 +18,5 @@ management:
 
 logging:
   level:
-    org.springframework.web: WARN
-    org.springframework.data: DEBUG
-    javax.persistence: DEBUG
+    org.springframework: WARN
     org.mike: DEBUG

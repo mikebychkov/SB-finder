@@ -56,6 +56,20 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- CONFIGURATION -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-kubernetes-fabric8-config</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
     </dependencies>
 
     <properties>
@@ -63,7 +77,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>org.mike.finder.FinderApplication</start-class>
         <docker.image.name>mikebychkov/sb-finder</docker.image.name>
-        <docker.image.tag>latest</docker.image.tag>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker.image.tag>${env.IMG_TAG}</docker.image.tag>
     </properties>
 
     <build>

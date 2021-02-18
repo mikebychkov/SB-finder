@@ -1,5 +1,6 @@
 package org.mike.finder.control;
 
+import org.mike.finder.config.Config;
 import org.mike.finder.model.Post;
 import org.mike.finder.service.ResultSvc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,16 @@ public class ResultController {
     @Autowired
     private ResultSvc svc;
 
+    @Autowired
+    private Config config;
+
     @GetMapping("/find/{filter}/{value}")
     public List<Post> getByFilter(@PathVariable String filter, @PathVariable String value) {
         return svc.getByFilter(filter, value);
+    }
+
+    @GetMapping("/config")
+    public String getConfig() {
+        return config.getValue() + " : THE NEW VERSION!";
     }
 }
