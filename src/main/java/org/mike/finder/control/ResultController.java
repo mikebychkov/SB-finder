@@ -19,6 +19,8 @@ public class ResultController {
     @Autowired
     private Config config;
 
+    private final String hostName = System.getenv("HOSTNAME");
+
     @GetMapping("/find/{filter}/{value}")
     public List<Post> getByFilter(@PathVariable String filter, @PathVariable String value) {
         return svc.getByFilter(filter, value);
@@ -26,6 +28,6 @@ public class ResultController {
 
     @GetMapping("/config")
     public String getConfig() {
-        return config.getValue() + " : THE NEW VERSION!";
+        return config.getValue() + " : " + hostName;
     }
 }

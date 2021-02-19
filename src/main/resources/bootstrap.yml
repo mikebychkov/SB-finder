@@ -5,6 +5,7 @@ spring:
     kubernetes:
       reload:
         enabled: true
+        #strategy: shutdown
       config:
         sources:
           - name: config
