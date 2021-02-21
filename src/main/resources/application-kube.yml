@@ -5,23 +5,20 @@ spring:
   redis:
     port: "6379"
     host: "redis-cluster-ip-service"
-#  cloud:
-#    stream:
-#      bindings:
-#        inboundPostsChanges:
-#          destination: "postsChangeTopic"
-#          content-type: "application/json"
-#          group: "finderGroup"
-#      kafka:
-#        binder:
-#          brokers: "kafka-cluster-ip-service"
   rabbitmq:
     host: rabbit-cluster-ip-service
     port: 5672
 
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://auth-cluster-ip-service:5005/user/
+
 my:
   services:
     posts: posts-cluster-ip-service
+  event:
+    queue: postsChangeEvent
 
 management:
   endpoints:

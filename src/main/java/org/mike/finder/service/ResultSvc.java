@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,7 +25,8 @@ public class ResultSvc {
     private ResultRepo repo;
 
     @Autowired
-    private RestTemplate restTemplate;
+    //private RestTemplate restTemplate;
+    private OAuth2RestTemplate restTemplate;
 
     @Value("${my.services.posts}")
     private String postsHost;

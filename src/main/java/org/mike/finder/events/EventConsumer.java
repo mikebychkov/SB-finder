@@ -7,6 +7,7 @@ import org.mike.finder.model.Result;
 import org.mike.finder.repo.ResultRepo;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,7 +18,7 @@ public class EventConsumer {
     @Autowired
     private ResultRepo repo;
 
-    @RabbitListener(queues = "postsChangeEvent")
+    @RabbitListener(queues = "${my.event.queue}")
     public void processToDo(Post post) {
         log.info("### RECEIVED MESSAGE: {}", post);
         Iterable<Result> rsl = repo.findAll();

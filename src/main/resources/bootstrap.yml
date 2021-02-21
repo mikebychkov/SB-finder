@@ -1,6 +1,9 @@
 spring:
   application:
     name: finder
+  profiles:
+    active:
+      default
   cloud:
     kubernetes:
       reload:

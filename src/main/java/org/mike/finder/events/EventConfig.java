@@ -28,7 +28,7 @@ public class EventConfig {
     }
 
     @Bean
-    public Queue queueCreation(@Value("postsChangeEvent") String queue) {
+    public Queue queueCreation(@Value("${my.event.queue}") String queue) {
         return new Queue(queue, true, false, false);
     }
 }
