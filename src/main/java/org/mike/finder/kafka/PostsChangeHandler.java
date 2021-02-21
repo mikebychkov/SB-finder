@@ -5,12 +5,12 @@ import org.mike.finder.repo.ResultRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.annotation.StreamListener;
+//import org.springframework.cloud.stream.annotation.EnableBinding;
+//import org.springframework.cloud.stream.annotation.StreamListener;
 
 import java.util.List;
 
-@EnableBinding(CustomChannels.class)
+//@EnableBinding(CustomChannels.class)
 public class PostsChangeHandler {
 
     private static final Logger log = LoggerFactory.getLogger(PostsChangeHandler.class);
@@ -18,7 +18,7 @@ public class PostsChangeHandler {
     @Autowired
     private ResultRepo repo;
 
-    @StreamListener("inboundPostsChanges")
+//    @StreamListener("inboundPostsChanges")
     public void loggerSink(ChangeModel change) {
         log.info("### RECEIVED KAFKA MESSAGE: {}", change);
         Iterable<Result> rsl = repo.findAll();
